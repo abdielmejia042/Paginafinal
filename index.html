@@ -1,419 +1,258 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
   <title>Fundación Lumen</title>
-  <meta name="description" content="Fundación Lumen — software educativo inclusivo para personas sordas y ciegas. Proyecto realizado por Ever Abdiel Aquino Mejía." />
+
   <style>
-    :root{
-      --bg:#041022;
-      --panel:#0b1220;
-      --accent:#7dd3fc;
-      --accent-2:#60a5fa;
-      --muted:#94a3b8;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      --maxw:1150px;
-      --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family:var(--ff-sans);
-      background: radial-gradient(1200px 400px at 10% 10%, rgba(124,58,237,0.06), transparent),
-                  linear-gradient(180deg,#03101a 0%, #041022 40%, #02101a 100%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      padding:28px;
-      display:flex;
-      justify-content:center;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#ecf5ff;
+      color:#1b1b1b;
+      line-height:1.6;
     }
-    .wrap{width:100%;max-width:var(--maxw)}
+
     header{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;
-    }
-    .brand{display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit}
-    .logo{
-      width:76px;height:76px;border-radius:14px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:flex;align-items:center;justify-content:center;font-weight:900;color:#042233;
-      box-shadow:0 12px 30px rgba(6,12,24,0.6);
-      font-size:20px;
-    }
-    .brand h1{margin:0;font-size:22px;letter-spacing:0.2px}
-    .brand p{margin:0;color:var(--muted);font-size:13px}
-    nav{display:flex;gap:10px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px;font-size:14px}
-    nav a:hover{color:var(--accent);background:rgba(255,255,255,0.02)}
-
-    /* hero */
-    .hero{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      border-radius:var(--radius);padding:28px;display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:center;margin-bottom:20px;border:1px solid rgba(255,255,255,0.03);
-    }
-    .hero h2{margin:0 0 8px 0;font-size:30px}
-    .lead{color:var(--muted);margin:0 0 16px 0}
-    .cta{display:flex;gap:12px}
-    .btn{background:var(--accent);color:#042233;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(45,120,170,0.12)}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:600}
-
-    /* layout */
-    .main{display:grid;grid-template-columns:2fr 1fr;gap:18px}
-    .content{display:flex;flex-direction:column;gap:16px}
-    .aside{position:sticky;top:28px}
-
-    .panel{
-      background:linear-gradient(180deg,var(--panel), rgba(10,16,28,0.36));
-      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 10px 30px rgba(2,6,23,0.5);
-    }
-    h3{margin:0 0 8px 0;color:var(--accent)}
-    .muted{color:var(--muted)}
-    .clean{margin:0;padding-left:18px}
-
-    /* organigrama */
-    .org{display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px}
-    .org-row{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
-    .org-box{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:10px 14px;border-radius:10px;min-width:160px;text-align:center;border:1px solid rgba(255,255,255,0.03)}
-    .org-box small{display:block;color:var(--muted);margin-top:6px}
-
-    /* tabla salarios */
-    .table-wrap{overflow:auto;border-radius:10px}
-    table{width:100%;border-collapse:collapse;margin-top:10px;background:transparent}
-    th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
-    th{color:var(--accent);font-weight:700}
-    tfoot td{font-weight:700}
-
-    /* cards grid */
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .kpi{font-size:20px;color:var(--accent);font-weight:800}
-
-    /* accordion */
-    .accordion{display:grid;gap:10px}
-    .acc-item{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
-    .acc-head{display:flex;justify-content:space-between;padding:12px;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);cursor:pointer}
-    .acc-body{padding:12px;display:none;color:var(--muted)}
-
-    /* footer */
-    footer{margin-top:18px;padding:14px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .main{grid-template-columns:1fr}
-      .grid3{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:640px){
-      nav{display:none}
-      .grid3{grid-template-columns:1fr}
+      background:#4ba3f1;
+      padding:20px;
+      color:white;
+      text-align:center;
+      border-bottom:4px solid #2b77c4;
     }
 
-    /* subtle animations */
-    .fade-up{transform:translateY(6px);opacity:0;animation:fadeUp 600ms ease-out forwards}
-    @keyframes fadeUp{to{transform:none;opacity:1}}
+    header h1{
+      margin:0;
+      font-size:32px;
+      letter-spacing:1px;
+    }
 
-    .muted.small{font-size:13px}
+    .container{
+      width:90%;
+      max-width:900px;
+      margin:20px auto;
+      padding:15px;
+      background:white;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      color:#2b77c4;
+      margin-top:20px;
+      border-left:5px solid #4ba3f1;
+      padding-left:10px;
+    }
+
+    ul{
+      margin:10px 0;
+      padding-left:20px;
+    }
+
+    .salarios table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+    }
+
+    .salarios th{
+      background:#4ba3f1;
+      color:white;
+      padding:8px;
+    }
+
+    .salarios td{
+      border:1px solid #d2d2d2;
+      padding:8px;
+      background:#f9fdff;
+    }
+
+    footer{
+      text-align:center;
+      margin:25px 0 15px;
+      color:#555;
+      font-size:14px;
+    }
+
+    .autor{
+      font-size:14px;
+      margin-top:5px;
+      color:#444;
+      text-align:center;
+    }
+
   </style>
 </head>
+
 <body>
-  <div class="wrap" role="main">
-    <header>
-      <a class="brand" href="#home" aria-label="Fundación Lumen">
-        <div class="logo" aria-hidden="true">FL</div>
-        <div>
-          <h1>Fundación Lumen</h1>
-          <p>Inclusión · Educación · Tecnología</p>
-        </div>
-      </a>
 
-      <nav aria-label="Navegación principal">
-        <a href="#about">Proyecto</a>
-        <a href="#rh">Recursos Humanos</a>
-        <a href="#ops">Operaciones</a>
-        <a href="#mkt">Mercadotecnia</a>
-        <a href="#foda">FODA</a>
-        <a href="#contact">Contacto</a>
-      </nav>
-    </header>
+<header>
+  <h1>Fundación Lumen</h1>
+  <p class="autor">(Proyecto realizado por: <strong>Ever Abdiel Aquino Mejía</strong>)</p>
+</header>
 
-    <section id="home" class="hero fade-up" aria-labelledby="home-h">
-      <div>
-        <h2 id="home-h">Fundación Lumen</h2>
-        <p class="lead">Software educativo inclusivo diseñado para mejorar el acceso a la educación de personas sordas y ciegas. Proyecto desarrollado por <strong>Ever Abdiel Aquino Mejía</strong>.</p>
+<div class="container">
 
-        <div class="cta" role="group" aria-label="Acciones">
-          <a class="btn" href="#about">Ver proyecto</a>
-          <a class="btn ghost" href="#rh">Ver salarios</a>
-        </div>
+  <h2>¿Qué es Fundación Lumen?</h2>
+  <p>
+    Fundación Lumen es un proyecto que busca ayudar a personas sordas y ciegas mediante un
+    software educativo accesible. Surge de la necesidad de tener materiales que faciliten la
+    comunicación, el aprendizaje y la inclusión dentro del ambiente escolar.
+  </p>
 
-        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-          <div class="muted.small">Lengua de Señas · Braille Digital · Lectura por voz</div>
-        </div>
-      </div>
+  <h2>Justificación</h2>
+  <ul>
+    <li>No existen suficientes recursos educativos accesibles para alumnos sordos o ciegos.</li>
+    <li>Muchos docentes no cuentan con materiales adaptados para su clase.</li>
+    <li>El proyecto aporta inclusión, apoyo y nuevas oportunidades.</li>
+    <li>Es una propuesta útil y con impacto social real.</li>
+  </ul>
 
-      <aside style="padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div><small class="muted">Duración estimada</small><div class="kpi">1 semestre</div></div>
-          <div><small class="muted">Público objetivo</small><div class="muted">Personas sordas y ciegas, docentes y escuelas inclusivas</div></div>
-          <div><small class="muted">Autor</small><div class="muted">Ever Abdiel Aquino Mejía</div></div>
-        </div>
-      </aside>
-    </section>
+  <h2>Objetivo General</h2>
+  <p>
+    Crear un software educativo inclusivo que permita a estudiantes con discapacidad sensorial
+    acceder a contenidos adaptados.
+  </p>
 
-    <div class="main">
-      <div class="content">
-        <!-- ABOUT -->
-        <article id="about" class="panel fade-up" aria-labelledby="about-h">
-          <h3 id="about-h">Datos generales y justificación</h3>
-          <p class="muted">La Fundación Lumen nace ante la carencia de herramientas pedagógicas accesibles y actualizadas para personas con discapacidad sensorial. La propuesta es un software educativo que combine texto, audio, lengua de señas digital y soporte braille, ajustable a distintos niveles escolares y contextos formativos.</p>
+  <h2>Objetivos Específicos</h2>
+  <ul>
+    <li>Investigar necesidades reales de personas sordas y ciegas.</li>
+    <li>Diseñar una interfaz accesible con audio, texto, braille y lengua de señas.</li>
+    <li>Desarrollar módulos interactivos para el aprendizaje.</li>
+    <li>Promover el uso de tecnología accesible en las escuelas.</li>
+  </ul>
 
-          <h4 style="color:var(--accent);margin-top:10px">Qué resuelve</h4>
-          <ul class="clean muted">
-            <li>Ofrece material didáctico adaptado y multimodal (texto + audio + vídeo LSM + braille).</li>
-            <li>Facilita la comunicación entre estudiantes con discapacidad y docentes.</li>
-            <li>Reduce barreras para el aprendizaje autónomo con recursos accesibles.</li>
-          </ul>
+  <h2>Misión</h2>
+  <p>Apoyar la educación de personas con discapacidad sensorial mediante tecnología accesible.</p>
 
-          <h4 style="color:var(--accent);margin-top:10px">Objetivo general</h4>
-          <p class="muted">Implementar un software inclusivo que permita a estudiantes sordos y ciegos acceder a contenidos educativos con adaptaciones pedagógicas y tecnológicas.</p>
+  <h2>Visión</h2>
+  <p>Ser un proyecto reconocido por su aporte inclusivo y por facilitar el aprendizaje accesible.</p>
 
-          <h4 style="color:var(--accent);margin-top:10px">Objetivos específicos (detallados)</h4>
-          <ul class="clean muted">
-            <li><strong>Investigación:</strong> Realizar entrevistas y pruebas con usuarios para detectar necesidades concretas por edad y nivel educativo.</li>
-            <li><strong>Diseño:</strong> Crear una interfaz con contraste optimizado, navegación por teclado, compatibilidad con lectores de pantalla y vídeos en lengua de señas con subtítulos sincronizados.</li>
-            <li><strong>Implementación:</strong> Desarrollar módulos con contenido adaptable (lecturas, ejercicios interactivos, evaluación formativa y feedback accesible).</li>
-            <li><strong>Divulgación y sostenibilidad:</strong> Establecer alianzas con escuelas y ONGs para pruebas piloto y escalamiento del proyecto.</li>
-          </ul>
-        </article>
+  <h2>Valores</h2>
+  <ul>
+    <li>Respeto</li>
+    <li>Inclusión</li>
+    <li>Empatía</li>
+    <li>Responsabilidad social</li>
+    <li>Trabajo en equipo</li>
+  </ul>
 
-        <!-- MISION / VISION -->
-        <section class="panel fade-up" aria-labelledby="mv-h">
-          <div class="section-head" style="display:flex;justify-content:space-between;align-items:center">
-            <h3 id="mv-h">Misión · Visión · Valores</h3>
-            <div class="muted">Marco institucional</div>
-          </div>
+  <h2>Tipo de constitución</h2>
+  <p>
+    La Fundación Lumen está planteada como una Asociación Civil (A.C.), ya que su objetivo
+    principal no es lucrar, sino ayudar a la comunidad.
+  </p>
 
-          <h4 style="color:var(--accent);margin-top:8px">Misión</h4>
-          <p class="muted">Brindar recursos educativos accesibles que potencien el aprendizaje y la autonomía de personas con discapacidad sensorial mediante tecnología inclusiva y colaboraciones educativas.</p>
+  <h2>Recursos Humanos</h2>
+  <p>
+    El proyecto requiere distintos roles para lograr su funcionamiento y diseño. Cada uno cumple
+    tareas esenciales para la construcción del software.
+  </p>
 
-          <h4 style="color:var(--accent);margin-top:8px">Visión</h4>
-          <p class="muted">Ser una referencia local y regional en soluciones educativas accesibles, demostrando que tecnología y pedagogía juntas generan igualdad de oportunidades.</p>
+  <h3>Descripción de Puestos</h3>
+  <ul>
+    <li><strong>Director General:</strong> Organiza, coordina y revisa el proyecto.</li>
+    <li><strong>Programadores:</strong> Crean y prueban el software.</li>
+    <li><strong>Diseñador UX/UI:</strong> Hace la interfaz accesible y agradable.</li>
+    <li><strong>Técnico:</strong> Soporte y pruebas.</li>
+    <li><strong>Recursos Humanos:</strong> Organización y actividades del equipo.</li>
+    <li><strong>Mercadotecnia:</strong> Difusión del proyecto.</li>
+    <li><strong>Intérprete LSM:</strong> Apoya la validación de lengua de señas.</li>
+    <li><strong>Asesor externo:</strong> Apoyo pedagógico.</li>
+  </ul>
 
-          <h4 style="color:var(--accent);margin-top:8px">Valores</h4>
-          <ul class="clean muted">
-            <li>Inclusión: diseño centrado en la diversidad.</li>
-            <li>Solidaridad: trabajo con comunidades y expertos.</li>
-            <li>Innovación: búsqueda de soluciones creativas.</li>
-            <li>Responsabilidad social: compromiso con resultados medibles.</li>
-            <li>Respeto y trabajo en equipo.</li>
-          </ul>
-        </section>
-
-        <!-- RH -->
-        <section id="rh" class="panel fade-up" aria-labelledby="rh-h">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3 id="rh-h">Recursos Humanos</h3>
-            <div class="muted">Roles, responsabilidades y costos</div>
-          </div>
-
-          <p class="muted">El equipo base combina perfiles técnicos, pedagógicos y comunicativos. A continuación se detallan responsabilidades y salarios recomendados, pensados para un proyecto semiprofesional/educativo en México.</p>
-
-          <div style="margin-top:12px" class="org">
-            <div class="org-row">
-              <div class="org-box"><strong>Director General</strong><small>Coordinación estratégica y representación</small></div>
-            </div>
-            <div class="org-row">
-              <div class="org-box"><strong>Operaciones</strong><small>Programación · QA</small></div>
-              <div class="org-box"><strong>Recursos Humanos</strong><small>Capacitación · administración</small></div>
-              <div class="org-box"><strong>Mercadotecnia</strong><small>Difusión · alianzas</small></div>
-            </div>
-            <div class="org-row">
-              <div class="org-box">Programadores<br><small>Implementación y mantenimiento</small></div>
-              <div class="org-box">Diseñador UX/UI<br><small>Accesibilidad y usabilidad</small></div>
-              <div class="org-box">Técnicos / QA<br><small>Soporte y pruebas en dispositivos</small></div>
-            </div>
-          </div>
-
-          <h4 style="color:var(--accent);margin-top:12px">Descripción breve de cada puesto</h4>
-          <ul class="clean muted">
-            <li><strong>Director General:</strong> Planificación, gestión de recursos, contacto con instituciones.</li>
-            <li><strong>Programadores:</strong> Desarrollo backend/frontend, integración de APIs, pruebas automatizadas.</li>
-            <li><strong>Diseñador UX/UI:</strong> Prototipos, pruebas de accesibilidad, adaptación visual y táctil.</li>
-            <li><strong>Técnico / QA:</strong> Pruebas en dispositivos, compatibilidad con lectores de pantalla y herramientas braille.</li>
-            <li><strong>Coordinador RH:</strong> Organización, reclutamiento y capacitación de voluntarios/contratados.</li>
-            <li><strong>Mercadotecnia:</strong> Relaciones públicas, material audiovisual y estrategias de difusión.</li>
-            <li><strong>Intérprete LSM:</strong> Validación de vídeos y materiales en lengua de señas.</li>
-            <li><strong>Asesor externo:</strong> Consultoría pedagógica y validación de contenidos.</li>
-          </ul>
-
-          <h4 style="color:var(--accent);margin-top:12px">Tabla de salarios (MXN mensuales, referencia)</h4>
-          <div class="table-wrap" aria-labelledby="salario-h">
-            <table>
-              <thead>
-                <tr><th>Puesto</th><th>Rol</th><th>Salario mensual</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Director General</td><td>Coordinación estratégica y representación</td><td>$18,000</td></tr>
-                <tr><td>Programador (x2)</td><td>Desarrollo, integración y pruebas</td><td>$15,000 (cada uno)</td></tr>
-                <tr><td>Diseñador UX/UI</td><td>Prototipos y accesibilidad</td><td>$14,000</td></tr>
-                <tr><td>Técnico / QA</td><td>Soporte y testing</td><td>$12,000</td></tr>
-                <tr><td>Coordinador RH</td><td>Administración de personal</td><td>$13,000</td></tr>
-                <tr><td>Especialista Mercadotecnia</td><td>Difusión y alianzas</td><td>$13,000</td></tr>
-                <tr><td>Intérprete LSM (part-time)</td><td>Validación de contenidos en LSM</td><td>$9,000</td></tr>
-                <tr><td>Asesor externo (part-time)</td><td>Pedagogía / accesibilidad</td><td>$6,000</td></tr>
-              </tbody>
-              <tfoot>
-                <tr><td colspan="2">Costo mensual estimado (equipo base)</td><td>$115,000*</td></tr>
-              </tfoot>
-            </table>
-          </div>
-          <p class="muted small" style="margin-top:8px">*Total referencial: ajustar si se contratan por horas, voluntariado o convenios institucionales.</p>
-        </section>
-
-        <!-- OPERACIONES -->
-        <section id="ops" class="panel fade-up" aria-labelledby="ops-h">
-          <h3 id="ops-h">Operaciones y flujo de trabajo</h3>
-          <p class="muted">Las operaciones están pensadas para iterar rápido y obtener pruebas reales con usuarios. Se organiza en sprints cortos (2–3 semanas) y ciclos de validación con usuarios finales.</p>
-
-          <div class="grid3" style="margin-top:10px">
-            <div class="panel" style="padding:12px">
-              <h4 style="color:var(--accent)">Investigación</h4>
-              <p class="muted">Entrevistas, encuestas y sesiones de observación con estudiantes y docentes para priorizar funciones.</p>
-            </div>
-            <div class="panel" style="padding:12px">
-              <h4 style="color:var(--accent)">Diseño</h4>
-              <p class="muted">Prototipos accesibles, pruebas con lectores de pantalla y grabación de vídeos en LSM.</p>
-            </div>
-            <div class="panel" style="padding:12px">
-              <h4 style="color:var(--accent)">Desarrollo</h4>
-              <p class="muted">Implementación modular: gestor de contenidos, reproductor LSM, motor de ejercicios y salida braille.</p>
-            </div>
-          </div>
-
-          <h4 style="color:var(--accent);margin-top:10px">Herramientas y pruebas</h4>
-          <ul class="clean muted">
-            <li>Frameworks web modernos, herramientas de TTS (text-to-speech), conversores a braille y reproductores de vídeo con subtítulos.</li>
-            <li>Pruebas en dispositivos móviles, lectores de pantalla NVDA/VoiceOver y validación con intérpretes LSM.</li>
-          </ul>
-        </section>
-
-        <!-- MERCADOTECNIA -->
-        <section id="mkt" class="panel fade-up" aria-labelledby="mkt-h">
-          <h3 id="mkt-h">Mercadotecnia y escalamiento</h3>
-          <p class="muted">La estrategia combina sensibilización social y demostraciones concretas para escuelas. La meta inicial es validar un MVP en 2 escuelas y recopilar datos de uso y satisfacción.</p>
-
-          <h4 style="color:var(--accent);margin-top:8px">Segmentación</h4>
-          <p class="muted">Usuarios directos: estudiantes sordos/ciegos. Actores clave: docentes de educación especial, directivos escolares y organizaciones sociales.</p>
-
-          <h4 style="color:var(--accent);margin-top:8px">Canales y actividades</h4>
-          <ul class="clean muted">
-            <li>Redes sociales con contenido educativo y testimonios en LSM.</li>
-            <li>Presentaciones en congresos educativos y ferias locales.</li>
-            <li>Alianzas con instituciones públicas para pruebas piloto.</li>
-            <li>Material descargable (manuales accesibles y vídeos demostrativos).</li>
-          </ul>
-        </section>
-
-        <!-- FODA -->
-        <section id="foda" class="panel fade-up" aria-labelledby="foda-h">
-          <h3 id="foda-h">Análisis FODA</h3>
-          <div class="accordion" style="margin-top:8px">
-            <div class="acc-item">
-              <div class="acc-head" data-target="f1" role="button" tabindex="0" aria-expanded="false"><strong>Fortalezas</strong><span class="muted">clic</span></div>
-              <div id="f1" class="acc-body"><ul class="clean muted"><li>Fuerte impacto social y necesidad demostrada.</li><li>Enfoque técnico-pedagógico integrado.</li><li>Posibilidad de alianzas locales.</li></ul></div>
-            </div>
-            <div class="acc-item">
-              <div class="acc-head" data-target="o1" role="button" tabindex="0" aria-expanded="false"><strong>Oportunidades</strong><span class="muted">clic</span></div>
-              <div id="o1" class="acc-body"><ul class="clean muted"><li>Fondos y apoyos gubernamentales/ONG disponibles.</li><li>Aumento de sensibilidad social hacia inclusión educativa.</li></ul></div>
-            </div>
-            <div class="acc-item">
-              <div class="acc-head" data-target="d1" role="button" tabindex="0" aria-expanded="false"><strong>Debilidades</strong><span class="muted">clic</span></div>
-              <div id="d1" class="acc-body"><ul class="clean muted"><li>Recursos limitados (financiamiento y personal especializado).</li><li>Necesidad de validar múltiples versiones para distintos niveles.</li></ul></div>
-            </div>
-            <div class="acc-item">
-              <div class="acc-head" data-target="a1" role="button" tabindex="0" aria-expanded="false"><strong>Amenazas</strong><span class="muted">clic</span></div>
-              <div id="a1" class="acc-body"><ul class="clean muted"><li>Soluciones comerciales con mayor presupuesto.</li><li>Rápida evolución tecnológica que exige actualización continua.</li></ul></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- CONCLUSION -->
-        <section class="panel fade-up" aria-labelledby="concl-h">
-          <h3 id="concl-h">Conclusión</h3>
-          <p class="muted">Fundación Lumen demuestra cómo una propuesta desde la academia puede generar soluciones accesibles y medibles. Con pruebas reales, alianzas y un enfoque iterativo se puede escalar el proyecto y beneficiar a muchos estudiantes en contextos diversos.</p>
-        </section>
-      </div>
-
-      <aside class="aside">
-        <div class="panel fade-up" aria-labelledby="kpi-h">
-          <h3 id="kpi-h">KPIs & entregables</h3>
-          <ul class="clean muted">
-            <li>MVP funcional en 3 meses</li>
-            <li>10+ usuarios en pruebas piloto</li>
-            <li>Manual accesible y videos LSM</li>
-            <li>Reporte final con métricas de usabilidad</li>
-          </ul>
-        </div>
-
-        <div class="panel fade-up" style="margin-top:12px" aria-labelledby="contact-h">
-          <h3 id="contact-h">Contacto</h3>
-          <p class="muted">Autor: <strong>Ever Abdiel Aquino Mejía</strong></p>
-          <p class="muted">Instituto Tecnológico de Ensenada</p>
-          <p class="muted" style="margin-top:6px">Email: <a href="mailto:ever@example.com" style="color:var(--accent)">ever@example.com</a></p>
-        </div>
-
-        <div class="panel fade-up" style="margin-top:12px">
-          <h3>Notas</h3>
-          <p class="muted small">Los salarios son referenciales y deben ajustarse a la modalidad (contrato, honorarios o convenio). Se recomienda validar con la institución para negociaciones formales.</p>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <div class="muted">Proyecto: Fundación Lumen — Taller de Administración</div>
-      <div class="muted">Autor: Ever Abdiel Aquino Mejía · Instituto Tecnológico de Ensenada</div>
-    </footer>
+  <h3>Salarios (Referenciales)</h3>
+  <div class="salarios">
+    <table>
+      <tr>
+        <th>Puesto</th>
+        <th>Salario Mensual (MXN)</th>
+      </tr>
+      <tr><td>Director General</td><td>$18,000</td></tr>
+      <tr><td>Programador</td><td>$15,000</td></tr>
+      <tr><td>Diseñador UX/UI</td><td>$14,000</td></tr>
+      <tr><td>Técnico / QA</td><td>$12,000</td></tr>
+      <tr><td>Recursos Humanos</td><td>$13,000</td></tr>
+      <tr><td>Mercadotecnia</td><td>$13,000</td></tr>
+      <tr><td>Intérprete LSM</td><td>$9,000</td></tr>
+      <tr><td>Asesor Externo</td><td>$6,000</td></tr>
+    </table>
   </div>
 
-  <script>
-    // fade-up trigger (simple)
-    document.querySelectorAll('.fade-up').forEach((el, i) => {
-      setTimeout(()=> el.style.animationDelay = '0ms', 10);
-      // remove transform so CSS animation plays (already declared)
-    });
+  <h2>Operaciones</h2>
+  <ul>
+    <li>Investigación de necesidades.</li>
+    <li>Diseño de interfaz accesible.</li>
+    <li>Desarrollo del software.</li>
+    <li>Pruebas con usuarios.</li>
+    <li>Correcciones finales.</li>
+  </ul>
 
-    // accordion behavior
-    document.querySelectorAll('.acc-head').forEach(head=>{
-      function toggle(){
-        const id = head.getAttribute('data-target');
-        const body = document.getElementById(id);
-        const expanded = head.getAttribute('aria-expanded') === 'true';
-        head.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        if(expanded){
-          body.style.display = 'none';
-        } else {
-          body.style.display = 'block';
-        }
-      }
-      head.addEventListener('click', toggle);
-      head.addEventListener('keydown', (e)=>{
-        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-      });
-    });
+  <h2>Equipo y herramientas necesarias</h2>
+  <ul>
+    <li>Computadoras</li>
+    <li>Software de desarrollo</li>
+    <li>Programas de diseño</li>
+    <li>Dispositivos móviles</li>
+    <li>Equipo audiovisual</li>
+  </ul>
 
-    // smooth internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
-    });
-  </script>
+  <h2>Mercadotecnia</h2>
+  <h3>Segmento de mercado</h3>
+  <ul>
+    <li>Personas sordas y ciegas</li>
+    <li>Escuelas</li>
+    <li>Maestros</li>
+    <li>Organizaciones sociales</li>
+  </ul>
+
+  <h3>Estrategias</h3>
+  <ul>
+    <li>Redes sociales</li>
+    <li>Charlas y demostraciones</li>
+    <li>Alianzas con escuelas</li>
+    <li>Videos explicativos</li>
+  </ul>
+
+  <h2>Análisis FODA</h2>
+
+  <h3>Fortalezas</h3>
+  <ul>
+    <li>Beneficio social real</li>
+    <li>Proyecto innovador</li>
+    <li>Accesibilidad</li>
+  </ul>
+
+  <h3>Oportunidades</h3>
+  <ul>
+    <li>Interés en educación inclusiva</li>
+    <li>Posibles apoyos de instituciones</li>
+  </ul>
+
+  <h3>Debilidades</h3>
+  <ul>
+    <li>Tiempo y recursos limitados</li>
+    <li>Requiere asesoría especializada</li>
+  </ul>
+
+  <h3>Amenazas</h3>
+  <ul>
+    <li>Software profesional más avanzado</li>
+    <li>Actualizaciones tecnológicas constantes</li>
+  </ul>
+
+  <h2>Conclusión</h2>
+  <p>
+    Fundación Lumen es un proyecto educativo diseñado con empatía. Demuestra que la tecnología
+    puede ser una gran herramienta para apoyar a estudiantes con discapacidad sensorial y
+    promover la inclusión en el entorno escolar.
+  </p>
+
+</div>
+
+<footer>
+  Fundación Lumen — Proyecto académico  
+</footer>
+
 </body>
 </html>
