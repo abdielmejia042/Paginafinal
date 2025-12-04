@@ -1,87 +1,137 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Fundación Lumen</title>
+<meta charset="utf-8">
+<title>Fundación Lumen</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:#ecf5ff;
-      color:#1b1b1b;
-      line-height:1.6;
-    }
+<style>
 
-    header{
-      background:#4ba3f1;
-      padding:20px;
-      color:white;
-      text-align:center;
-      border-bottom:4px solid #2b77c4;
-    }
+/* ----------- ESTILOS GENERALES ----------- */
 
-    header h1{
-      margin:0;
-      font-size:32px;
-      letter-spacing:1px;
-    }
+body{
+  margin:0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(160deg, #dff1ff, #f7fbff);
+  color:#2b2b2b;
+}
 
-    .container{
-      width:90%;
-      max-width:900px;
-      margin:20px auto;
-      padding:15px;
-      background:white;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
-    }
+header{
+  background: linear-gradient(135deg, #4ba3f1, #7cc8ff);
+  padding:25px;
+  text-align:center;
+  color:white;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  border-bottom:5px solid #2b77c4;
+}
 
-    h2{
-      color:#2b77c4;
-      margin-top:20px;
-      border-left:5px solid #4ba3f1;
-      padding-left:10px;
-    }
+header h1{
+  margin:0;
+  font-size:42px;
+  font-weight:800;
+  text-shadow:2px 2px 0 rgba(0,0,0,0.15);
+}
 
-    ul{
-      margin:10px 0;
-      padding-left:20px;
-    }
+.autor{
+  font-size:16px;
+  margin-top:8px;
+}
 
-    .salarios table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px;
-    }
+/* ----------- CONTENEDOR ----------- */
 
-    .salarios th{
-      background:#4ba3f1;
-      color:white;
-      padding:8px;
-    }
+.container{
+  width:90%;
+  max-width:900px;
+  margin:25px auto;
+  padding:20px;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 0 20px rgba(0,0,0,0.12);
+  border:1px solid #ebf3ff;
+}
 
-    .salarios td{
-      border:1px solid #d2d2d2;
-      padding:8px;
-      background:#f9fdff;
-    }
+/* ----------- TITULOS ----------- */
 
-    footer{
-      text-align:center;
-      margin:25px 0 15px;
-      color:#555;
-      font-size:14px;
-    }
+h2{
+  margin-top:35px;
+  color:#2b77c4;
+  font-size:26px;
+  border-left:7px solid #4ba3f1;
+  padding-left:12px;
+}
 
-    .autor{
-      font-size:14px;
-      margin-top:5px;
-      color:#444;
-      text-align:center;
-    }
+h3{
+  color:#3d8ee8;
+  margin-top:20px;
+}
 
-  </style>
+/* ----------- TARJETAS ----------- */
+
+.card{
+  background:#f3faff;
+  border-left:6px solid #4ba3f1;
+  padding:15px;
+  margin:15px 0;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* ----------- TABLAS ----------- */
+
+.salarios table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+  font-size:15px;
+}
+
+.salarios th{
+  background:linear-gradient(145deg, #4ba3f1, #6cc0ff);
+  color:white;
+  padding:10px;
+  border-radius:6px 6px 0 0;
+}
+
+.salarios td{
+  border-bottom:1px solid #d8eaff;
+  padding:10px;
+  background:#ffffffd9;
+}
+
+.salarios tr:hover td{
+  background:#e9f5ff;
+}
+
+/* ----------- SEPARADORES ----------- */
+
+.separator{
+  height:3px;
+  width:100%;
+  background:linear-gradient(to right, #4ba3f1, #7cc8ff);
+  margin:30px 0;
+  border-radius:4px;
+}
+
+/* ----------- LISTAS ----------- */
+
+ul{
+  padding-left:20px;
+  margin:10px 0;
+}
+
+li{
+  margin-bottom:6px;
+}
+
+/* ----------- FOOTER ----------- */
+
+footer{
+  text-align:center;
+  margin:40px 0 20px;
+  color:#555;
+  font-size:14px;
+}
+
+</style>
 </head>
 
 <body>
@@ -94,39 +144,46 @@
 <div class="container">
 
   <h2>¿Qué es Fundación Lumen?</h2>
-  <p>
-    Fundación Lumen es un proyecto que busca ayudar a personas sordas y ciegas mediante un
-    software educativo accesible. Surge de la necesidad de tener materiales que faciliten la
-    comunicación, el aprendizaje y la inclusión dentro del ambiente escolar.
-  </p>
+  <div class="card">
+    Fundación Lumen es un proyecto que busca apoyar a personas sordas y ciegas mediante un software educativo accesible. Su objetivo es facilitar el aprendizaje, la comunicación y la inclusión dentro del entorno escolar.
+  </div>
+
+  <div class="separator"></div>
 
   <h2>Justificación</h2>
   <ul>
-    <li>No existen suficientes recursos educativos accesibles para alumnos sordos o ciegos.</li>
-    <li>Muchos docentes no cuentan con materiales adaptados para su clase.</li>
-    <li>El proyecto aporta inclusión, apoyo y nuevas oportunidades.</li>
-    <li>Es una propuesta útil y con impacto social real.</li>
+    <li>Falta de materiales accesibles en escuelas.</li>
+    <li>Docentes sin recursos adaptados.</li>
+    <li>Necesidad de promover la inclusión real.</li>
+    <li>Gran impacto social para estudiantes con discapacidad sensorial.</li>
   </ul>
 
+  <div class="separator"></div>
+
   <h2>Objetivo General</h2>
-  <p>
-    Crear un software educativo inclusivo que permita a estudiantes con discapacidad sensorial
-    acceder a contenidos adaptados.
-  </p>
+  <div class="card">
+    Crear un software educativo inclusivo que permita a estudiantes sordos y ciegos acceder a contenido adaptado y fácil de usar.
+  </div>
 
   <h2>Objetivos Específicos</h2>
   <ul>
-    <li>Investigar necesidades reales de personas sordas y ciegas.</li>
-    <li>Diseñar una interfaz accesible con audio, texto, braille y lengua de señas.</li>
-    <li>Desarrollar módulos interactivos para el aprendizaje.</li>
-    <li>Promover el uso de tecnología accesible en las escuelas.</li>
+    <li>Investigar necesidades educativas reales.</li>
+    <li>Diseñar una interfaz accesible y agradable.</li>
+    <li>Integrar audio, texto, braille y lengua de señas.</li>
+    <li>Promover el uso de tecnología accesible.</li>
   </ul>
 
+  <div class="separator"></div>
+
   <h2>Misión</h2>
-  <p>Apoyar la educación de personas con discapacidad sensorial mediante tecnología accesible.</p>
+  <div class="card">
+    Apoyar la educación y comunicación de personas con discapacidad sensorial mediante tecnología accesible y empática.
+  </div>
 
   <h2>Visión</h2>
-  <p>Ser un proyecto reconocido por su aporte inclusivo y por facilitar el aprendizaje accesible.</p>
+  <div class="card">
+    Ser un proyecto escolar reconocido por su aporte inclusivo y por facilitar recursos educativos accesibles.
+  </div>
 
   <h2>Valores</h2>
   <ul>
@@ -137,37 +194,35 @@
     <li>Trabajo en equipo</li>
   </ul>
 
+  <div class="separator"></div>
+
   <h2>Tipo de constitución</h2>
-  <p>
-    La Fundación Lumen está planteada como una Asociación Civil (A.C.), ya que su objetivo
-    principal no es lucrar, sino ayudar a la comunidad.
-  </p>
+  <div class="card">
+    Fundación Lumen está planteada como una Asociación Civil (A.C.), ya que no tiene fines de lucro y se enfoca en brindar apoyo social y educativo.
+  </div>
+
+  <div class="separator"></div>
 
   <h2>Recursos Humanos</h2>
-  <p>
-    El proyecto requiere distintos roles para lograr su funcionamiento y diseño. Cada uno cumple
-    tareas esenciales para la construcción del software.
-  </p>
+  <p>El proyecto necesita un pequeño equipo, cada uno con funciones importantes.</p>
 
-  <h3>Descripción de Puestos</h3>
+  <h3>Lista de Puestos</h3>
   <ul>
-    <li><strong>Director General:</strong> Organiza, coordina y revisa el proyecto.</li>
+    <li><strong>Director General:</strong> Organización del proyecto.</li>
     <li><strong>Programadores:</strong> Crean y prueban el software.</li>
-    <li><strong>Diseñador UX/UI:</strong> Hace la interfaz accesible y agradable.</li>
-    <li><strong>Técnico:</strong> Soporte y pruebas.</li>
-    <li><strong>Recursos Humanos:</strong> Organización y actividades del equipo.</li>
+    <li><strong>Diseñador UX/UI:</strong> Interfaz accesible.</li>
+    <li><strong>Técnico:</strong> Pruebas y soporte.</li>
+    <li><strong>Recursos Humanos:</strong> Organización del equipo.</li>
     <li><strong>Mercadotecnia:</strong> Difusión del proyecto.</li>
-    <li><strong>Intérprete LSM:</strong> Apoya la validación de lengua de señas.</li>
-    <li><strong>Asesor externo:</strong> Apoyo pedagógico.</li>
+    <li><strong>Intérprete LSM:</strong> Apoya con lengua de señas.</li>
+    <li><strong>Asesor externo:</strong> Guía pedagógica.</li>
   </ul>
 
   <h3>Salarios (Referenciales)</h3>
+
   <div class="salarios">
     <table>
-      <tr>
-        <th>Puesto</th>
-        <th>Salario Mensual (MXN)</th>
-      </tr>
+      <tr><th>Puesto</th><th>Salario Mensual (MXN)</th></tr>
       <tr><td>Director General</td><td>$18,000</td></tr>
       <tr><td>Programador</td><td>$15,000</td></tr>
       <tr><td>Diseñador UX/UI</td><td>$14,000</td></tr>
@@ -179,25 +234,30 @@
     </table>
   </div>
 
+  <div class="separator"></div>
+
   <h2>Operaciones</h2>
   <ul>
-    <li>Investigación de necesidades.</li>
-    <li>Diseño de interfaz accesible.</li>
+    <li>Investigación de necesidades reales.</li>
+    <li>Diseño de interfaz accesible y limpia.</li>
     <li>Desarrollo del software.</li>
-    <li>Pruebas con usuarios.</li>
-    <li>Correcciones finales.</li>
+    <li>Pruebas con estudiantes.</li>
+    <li>Corrección de errores.</li>
   </ul>
 
-  <h2>Equipo y herramientas necesarias</h2>
+  <h2>Equipo y Herramientas</h2>
   <ul>
     <li>Computadoras</li>
     <li>Software de desarrollo</li>
     <li>Programas de diseño</li>
-    <li>Dispositivos móviles</li>
+    <li>Dispositivos móviles para pruebas</li>
     <li>Equipo audiovisual</li>
   </ul>
 
+  <div class="separator"></div>
+
   <h2>Mercadotecnia</h2>
+
   <h3>Segmento de mercado</h3>
   <ul>
     <li>Personas sordas y ciegas</li>
@@ -214,11 +274,13 @@
     <li>Videos explicativos</li>
   </ul>
 
+  <div class="separator"></div>
+
   <h2>Análisis FODA</h2>
 
   <h3>Fortalezas</h3>
   <ul>
-    <li>Beneficio social real</li>
+    <li>Impacto social real</li>
     <li>Proyecto innovador</li>
     <li>Accesibilidad</li>
   </ul>
@@ -231,22 +293,23 @@
 
   <h3>Debilidades</h3>
   <ul>
-    <li>Tiempo y recursos limitados</li>
+    <li>Poco presupuesto</li>
     <li>Requiere asesoría especializada</li>
   </ul>
 
   <h3>Amenazas</h3>
   <ul>
-    <li>Software profesional más avanzado</li>
-    <li>Actualizaciones tecnológicas constantes</li>
+    <li>Software profesional más completo</li>
+    <li>Cambios rápidos en la tecnología</li>
   </ul>
 
+  <div class="separator"></div>
+
   <h2>Conclusión</h2>
-  <p>
-    Fundación Lumen es un proyecto educativo diseñado con empatía. Demuestra que la tecnología
-    puede ser una gran herramienta para apoyar a estudiantes con discapacidad sensorial y
-    promover la inclusión en el entorno escolar.
-  </p>
+  <div class="card">
+    Fundación Lumen es un proyecto escolar que demuestra que con empatía, creatividad y tecnología
+    sí es posible apoyar a estudiantes con discapacidad sensorial dentro del aula.
+  </div>
 
 </div>
 
